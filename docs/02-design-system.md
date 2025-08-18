@@ -1,99 +1,162 @@
-# Design System
+# VorcaStudio - Design System
 
-## Color Palette
+## 🎨 Color Palette
 
 ### Primary Colors
-- Primary: `#7C3AED` (Violet-600)
-- Primary Light: `#8B5CF6` (Violet-500)
-- Primary Dark: `#6D28D9` (Violet-700)
+```css
+:root {
+  --deep-ocean-blue: #001F3F;    /* Primary background, hero section */
+  --orca-black: #0A0A0A;          /* Logo, typography headline */
+  --foam-white: #FDFDFD;          /* Text, contrast color */
+  --aqua-glow: #00C2FF;           /* Accent, buttons, links */
+  --steel-gray: #6B7280;          /* Secondary text, UI elements */
+}
+```
 
-### Secondary Colors
-- Secondary: `#0EA5E9` (Sky-500)
-- Secondary Light: `#38BDF8` (Sky-400)
-- Secondary Dark: `#0284C7` (Sky-600)
+### Color Usage Guidelines
+- **Deep Ocean Blue**: Hero backgrounds, section dividers, premium elements
+- **Orca Black**: Primary headings, logo, high-impact text
+- **Foam White**: Body text, card backgrounds, clean spaces
+- **Aqua Glow**: CTAs, hover states, progress indicators, highlights
+- **Steel Gray**: Supporting text, form labels, subtle UI elements
 
-### Neutral Colors
-- Background: `#FFFFFF` (White)
-- Background Secondary: `#F9FAFB` (Gray-50)
-- Text Primary: `#111827` (Gray-900)
-- Text Secondary: `#6B7280` (Gray-500)
-- Border: `#E5E7EB` (Gray-200)
+### Color Psychology
+- **Blue**: Kepercayaan, profesionalisme, kedalaman expertise
+- **Black**: Kekuatan, authority, precision
+- **Aqua**: Inovasi, teknologi, future-forward thinking
+- **Gray**: Balance, sophistication, modern approach
 
-### Semantic Colors
-- Success: `#10B981` (Emerald-500)
-- Warning: `#F59E0B` (Amber-500)
-- Error: `#EF4444` (Red-500)
-- Info: `#3B82F6` (Blue-500)
+## 🔤 Typography System
 
-## Typography
+### Font Stack
+```css
+/* Headings - Bold & Geometric */
+.heading {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600-700;
+}
 
-### Font Family
-- Primary: Inter (sans-serif)
-- Code: Fira Code (monospace)
+/* Body Text - Clean & Readable */
+.body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400-500;
+}
 
-### Font Sizes
-- H1: 3rem (48px) - Desktop / 2.25rem (36px) - Mobile
-- H2: 2.25rem (36px) - Desktop / 1.875rem (30px) - Mobile
-- H3: 1.875rem (30px) - Desktop / 1.5rem (24px) - Mobile
-- H4: 1.5rem (24px) - Desktop / 1.25rem (20px) - Mobile
-- Body: 1rem (16px)
-- Small: 0.875rem (14px)
+/* Accent Text - Techy Feel */
+.accent {
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 500;
+}
+```
 
-## Spacing System
-- 4px (1) - xs
-- 8px (2) - sm
-- 12px (3) - md
-- 16px (4) - base
-- 24px (6) - lg
-- 32px (8) - xl
-- 48px (12) - 2xl
-- 64px (16) - 3xl
+### Typography Scale
+```css
+/* Display */
+--text-display: 3.75rem;        /* 60px - Hero titles */
+--text-display-sm: 3rem;        /* 48px - Section titles */
 
-## Border Radius
-- sm: 0.25rem (4px)
-- base: 0.5rem (8px)
-- md: 0.75rem (12px)
-- lg: 1rem (16px)
-- full: 9999px
+/* Headings */
+--text-h1: 2.25rem;             /* 36px */
+--text-h2: 1.875rem;            /* 30px */
+--text-h3: 1.5rem;              /* 24px */
+--text-h4: 1.25rem;             /* 20px */
 
-## Shadows
-- sm: 0 1px 2px 0 rgb(0 0 0 / 0.05)
-- base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)
-- md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)
-- lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)
-- xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)
+/* Body */
+--text-lg: 1.125rem;            /* 18px - Lead paragraph */
+--text-base: 1rem;              /* 16px - Regular text */
+--text-sm: 0.875rem;            /* 14px - Captions */
+--text-xs: 0.75rem;             /* 12px - Fine print */
+```
 
-## Breakpoints
-- sm: 640px
-- md: 768px
-- lg: 1024px
-- xl: 1280px
-- 2xl: 1536px
+### Line Height & Letter Spacing
+```css
+--leading-tight: 1.25;          /* Headlines */
+--leading-normal: 1.5;          /* Body text */
+--leading-relaxed: 1.75;        /* Long-form content */
 
-## UI Components (shadcn/ui)
-- Accordion
-- Alert
-- AlertDialog
-- Avatar
-- Badge
-- Button
-- Calendar
-- Card
-- Checkbox
-- Dialog
-- DropdownMenu
-- Form
-- Input
-- Label
-- NavigationMenu
-- Popover
-- Select
-- Separator
-- Sheet
-- Skeleton
-- Switch
-- Table
-- Tabs
-- Textarea
-- Toast
-- Tooltip
+--tracking-tight: -0.025em;     /* Large headings */
+--tracking-normal: 0;           /* Regular text */
+--tracking-wide: 0.025em;       /* Buttons, labels */
+```
+
+## 🌊 Visual Elements
+
+### Logo Specifications
+- **Primary Logo**: Orca silhouette melengkung membentuk huruf V
+- **Minimum Size**: 32px height (digital), 1.5cm (print)
+- **Clear Space**: Minimum 2x logo height di semua sisi
+- **Variations**: 
+  - Full color (Deep Ocean Blue + Aqua Glow)
+  - Monochrome white (dark backgrounds)
+  - Monochrome black (light backgrounds)
+
+### Iconography Style
+- **Style**: Outline icons, 2px stroke weight
+- **Color**: Inherit from parent atau menggunakan Aqua Glow untuk accent
+- **Size**: 16px, 20px, 24px, 32px standard sizes
+- **Family**: Lucide React icons untuk consistency
+
+### Pattern & Textures
+- **Wave Patterns**: Subtle SVG waves untuk section dividers
+- **Fluid Shapes**: Organic curves untuk background elements
+- **Gradient Flows**: Linear gradients dari Deep Ocean Blue ke transparan
+- **Bioluminescent Effects**: Subtle glow effects dengan Aqua Glow
+
+## 📐 Spacing System
+
+### Spacing Scale (Tailwind-based)
+```css
+--space-xs: 0.25rem;    /* 4px */
+--space-sm: 0.5rem;     /* 8px */
+--space-md: 1rem;       /* 16px */
+--space-lg: 1.5rem;     /* 24px */
+--space-xl: 2rem;       /* 32px */
+--space-2xl: 3rem;      /* 48px */
+--space-3xl: 4rem;      /* 64px */
+--space-4xl: 6rem;      /* 96px */
+--space-5xl: 8rem;      /* 128px */
+```
+
+### Component Spacing
+- **Section Padding**: 4xl (mobile), 5xl (desktop)
+- **Card Padding**: lg (mobile), xl (desktop)
+- **Button Padding**: sm md (vertical horizontal)
+- **Form Elements**: md spacing between fields
+
+## 🎭 Animation Guidelines
+
+### Micro-interactions
+- **Hover Transitions**: 300ms ease-out
+- **Button States**: Scale transform + color change
+- **Link Hovers**: Underline animation dari kiri ke kanan
+- **Card Hovers**: Subtle lift dengan shadow increase
+
+### Page Transitions
+- **Fade In**: Elements muncul dengan opacity 0 to 1
+- **Slide Up**: Content masuk dari bawah (translateY)
+- **Ripple Effect**: Untuk loading states dan interactions
+- **Wave Animation**: Background elements dengan gentle movement
+
+### Performance Guidelines
+- Gunakan `transform` dan `opacity` untuk animations (GPU accelerated)
+- Maksimal 60fps untuk semua animations
+- Fallback untuk `prefers-reduced-motion`
+
+## 📱 Responsive Breakpoints
+
+```css
+/* Mobile First Approach */
+--breakpoint-sm: 640px;      /* Small tablets */
+--breakpoint-md: 768px;      /* Tablets */
+--breakpoint-lg: 1024px;     /* Laptops */
+--breakpoint-xl: 1280px;     /* Desktops */
+--breakpoint-2xl: 1536px;    /* Large screens */
+```
+
+### Grid System
+- **Mobile**: Single column, full-width cards
+- **Tablet**: 2-3 column grid untuk content cards
+- **Desktop**: Complex layouts dengan sidebar dan multi-column
+
+---
+*Design system ini adalah foundation untuk menciptakan digital presence yang powerful dan consistent seperti kekuatan orca di lautan digital.*
