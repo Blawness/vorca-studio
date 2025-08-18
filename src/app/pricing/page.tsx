@@ -8,6 +8,7 @@ import { Check } from "lucide-react";
 import { FadeInOnView, StaggerContainer } from "@/components/ui/animated";
 import fs from "node:fs";
 import path from "node:path";
+import { parsePlans } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Paket & Harga — VorcaStudio",
@@ -22,52 +23,10 @@ export default function PricingPage() {
     pricingMd = fs.readFileSync(pricingMdPath, "utf8").trim();
   } catch {}
 
-  type Plan = { name: string; price: string; features: string[] };
-
-  function parsePlans(md: string): Plan[] {
-    if (!md) return [];
-    const lines = md.split(/\r?\n/);
-    // Focus only on the "## 📦 Paket Rekomendasi" section
-    let startIdx = lines.findIndex((l) => l.trim().startsWith("## ") && l.includes("Paket Rekomendasi"));
-    if (startIdx === -1) startIdx = 0;
-    let endIdx = lines.length;
-    for (let i = startIdx + 1; i < lines.length; i++) {
-      if (lines[i].trim().startsWith("## ") && !lines[i].includes("Paket Rekomendasi")) {
-        endIdx = i;
-        break;
-      }
-    }
-    const section = lines.slice(startIdx, endIdx);
-
-    const plans: Plan[] = [];
-    let i = 0;
-    while (i < section.length) {
-      const line = section[i].trim();
-      if (line.startsWith("### ")) {
-        const header = line.replace(/^###\s+/, "").trim();
-        const priceMatch = header.match(/\(([^)]+)\)$/);
-        const price = priceMatch ? priceMatch[1].trim() : "";
-        const name = header.replace(/\s*\([^)]*\)\s*$/, "").trim();
-        const features: string[] = [];
-        i++;
-        while (i < section.length) {
-          const l = section[i].trim();
-          if (l.startsWith("### ") || (l.startsWith("## ") && !l.includes("Paket Rekomendasi"))) break;
-          if (l.startsWith("- ")) features.push(l.replace(/^-\s+/, "").trim());
-          i++;
-        }
-        plans.push({ name, price, features });
-        continue;
-      }
-      i++;
-    }
-    return plans;
-  }
-
   const plans = parsePlans(pricingMd);
   return (
     <>
-      <Section className="mx-auto max-w-7xl space-y-6">
+      <Section className="bg-transparent mx-auto max-w-7xl space-y-6">
         <StaggerContainer className="space-y-4">
           <FadeInOnView>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -91,7 +50,7 @@ export default function PricingPage() {
         
       </Section>
 
-      <Section className="mx-auto max-w-7xl">
+      <Section className="bg-transparent mx-auto max-w-7xl">
         <div className="grid gap-6 md:grid-cols-3">
           {plans.length > 0 ? (
             plans.map((plan, idx) => (

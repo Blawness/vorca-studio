@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import { PricingGrid } from "@/components/pricing/PricingGrid";
+import { useEffect, useRef } from "react";
 
 const container: Variants = {
   hidden: { opacity: 0, y: 10 },
@@ -55,6 +57,203 @@ const WaveLayer = ({
     />
   </motion.svg>
 );
+
+// Fluid circle shader canvas (interactive, no deps)
+const ShaderGlobe = ({ className = "" }: { className?: string }) => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const gl = canvas.getContext("webgl");
+    if (!gl) return;
+
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let raf = 0;
+
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = Math.max(2, Math.floor(rect.width * dpr));
+      canvas.height = Math.max(2, Math.floor(rect.height * dpr));
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    };
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+
+    const vsSource = `
+      attribute vec2 a_position;
+      void main() {
+        gl_Position = vec4(a_position, 0.0, 1.0);
+      }
+    `;
+
+    const fsSource = `
+      precision highp float;
+      uniform vec2 u_resolution;
+      uniform float u_time;
+      uniform vec2 u_mouse;
+      uniform float u_hover;
+
+      float hash(vec2 p){ p = fract(p*vec2(123.34,456.21)); p += dot(p, p+45.32); return fract(p.x*p.y); }
+      float noise(vec2 p){ vec2 i=floor(p); vec2 f=fract(p); float a=hash(i); float b=hash(i+vec2(1.0,0.0)); float c=hash(i+vec2(0.0,1.0)); float d=hash(i+vec2(1.0,1.0)); vec2 u=f*f*(3.0-2.0*f); return mix(mix(a,b,u.x), mix(c,d,u.x), u.y); }
+      float fbm(vec2 p){ float v=0.0; float a=0.5; for(int i=0;i<5;i++){ v += a*noise(p); p *= 2.0; a *= 0.5; } return v; }
+
+      vec3 palette(float t){
+        vec3 a = vec3(0.01,0.09,0.16); // deep ocean
+        vec3 b = vec3(0.02,0.20,0.30);
+        vec3 c = vec3(0.07,0.72,0.85); // aqua
+        return mix(a, mix(b, c, t), 0.9);
+      }
+
+      void main(){
+        vec2 res = u_resolution;
+        vec2 uv = (gl_FragCoord.xy - 0.5*res) / min(res.x,res.y);
+        float r = length(uv);
+
+        // circular mask
+        float radius = 0.48;
+        float edge = 0.02;
+        float mask = 1.0 - smoothstep(radius, radius+edge, r);
+
+        // mouse in same space as uv
+        vec2 m = (u_mouse - 0.5*res) / min(res.x,res.y);
+        float md = length(uv - m);
+
+        // domain-warped fbm
+        float t = u_time;
+        vec2 p = uv * 2.2;
+        vec2 q = vec2(fbm(p + vec2(0.0, t*0.25)), fbm(p + vec2(5.2, -t*0.23)));
+        p += 0.45 * q;
+
+        // swirl around mouse when hovering
+        float swirl = u_hover * 0.65 * exp(-3.0 * md);
+        float cs = cos(swirl), sn = sin(swirl);
+        mat2 rot = mat2(cs, -sn, sn, cs);
+        p = rot * (p - m) + m;
+
+        float f = fbm(p + vec2(t*0.5, -t*0.35));
+        float g = fbm(p*1.8 - vec2(t*0.3, t*0.2));
+        float v = smoothstep(0.2, 0.9, f*0.6 + g*0.5);
+
+        // hover ripple
+        float ripple = u_hover * 0.25 * sin(18.0 * md - 3.5 * t) * exp(-3.5 * md);
+        v = clamp(v + ripple, 0.0, 1.0);
+
+        vec3 col = palette(v);
+        col += vec3(0.07,0.72,0.85) * 0.15 * (1.0 - smoothstep(0.3, 0.48, r));
+
+        float alpha = mask;
+        gl_FragColor = vec4(col * mask, alpha);
+      }
+    `;
+
+    const createShader = (type: number, source: string) => {
+      const shader = gl.createShader(type)!;
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    };
+
+    const vs = createShader(gl.VERTEX_SHADER, vsSource);
+    const fs = createShader(gl.FRAGMENT_SHADER, fsSource);
+    if (!vs || !fs) return () => {};
+
+    const prog = gl.createProgram()!;
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      console.error(gl.getProgramInfoLog(prog));
+      return () => {};
+    }
+
+    gl.useProgram(prog);
+    // enable alpha blending for transparent outside-circle
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+    // Fullscreen quad
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    const vertices = new Float32Array([
+      -1, -1,  1, -1,  -1,  1,
+       1, -1,  1,  1,  -1,  1,
+    ]);
+    gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+    const aPos = gl.getAttribLocation(prog, "a_position");
+    gl.enableVertexAttribArray(aPos);
+    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+    const uResolution = gl.getUniformLocation(prog, "u_resolution");
+    const uTime = gl.getUniformLocation(prog, "u_time");
+    const uMouse = gl.getUniformLocation(prog, "u_mouse");
+    const uHover = gl.getUniformLocation(prog, "u_hover");
+
+    // pointer interaction state
+    let mouseX = canvas.width * 0.5;
+    let mouseY = canvas.height * 0.5;
+    let hover = 0;
+
+    const handleMove = (e: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = (e.clientX - rect.left) * dpr;
+      // convert from top-left origin to bottom-left origin for WebGL
+      mouseY = (rect.height - (e.clientY - rect.top)) * dpr;
+    };
+    const handleEnter = () => { hover = 1; };
+    const handleLeave = () => { hover = 0; };
+
+    canvas.addEventListener("pointermove", handleMove);
+    canvas.addEventListener("pointerenter", handleEnter);
+    canvas.addEventListener("pointerleave", handleLeave);
+
+    const start = performance.now();
+    const render = () => {
+      raf = requestAnimationFrame(render);
+      const t = (performance.now() - start) / 1000;
+      gl.uniform2f(uResolution, canvas.width, canvas.height);
+      gl.uniform1f(uTime, t);
+      gl.uniform2f(uMouse, mouseX, mouseY);
+      gl.uniform1f(uHover, hover);
+      gl.clearColor(0, 0, 0, 0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+    };
+
+    resize();
+    render();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      canvas.removeEventListener("pointermove", handleMove);
+      canvas.removeEventListener("pointerenter", handleEnter);
+      canvas.removeEventListener("pointerleave", handleLeave);
+      ro.disconnect();
+      gl.useProgram(null);
+      if (buffer) gl.deleteBuffer(buffer);
+      if (vs) gl.deleteShader(vs);
+      if (fs) gl.deleteShader(fs);
+      if (prog) gl.deleteProgram(prog);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className={`w-full h-full ${className}`}
+      style={{ display: "block" }}
+      aria-label="Animated globe shader"
+      role="img"
+    />
+  );
+};
 
 export default function Home() {
   return (
@@ -161,7 +360,7 @@ export default function Home() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative z-10 h-64 md:h-80 lg:h-96"
         >
-          <Image src="/globe.svg" alt="VorcaStudio" fill className="object-contain invert" />
+          <ShaderGlobe />
         </motion.div>
       </section>
 
@@ -254,92 +453,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section (synced with docs/pricing.md) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold mb-8">Pricing</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            {
-              name: "Starter",
-              price: "$999",
-              desc:
-                "Perfect for small businesses and startups looking to establish their online presence with AI-enhanced features.",
-              features: [
-                "Up to 5 pages",
-                "Basic AI integration",
-                "Responsive design",
-                "Contact form",
-                "Social media integration",
-                "1 month support",
-              ],
-            },
-            {
-              name: "Professional",
-              price: "$2,499",
-              desc:
-                "Ideal for growing businesses that need a comprehensive web solution with advanced AI capabilities.",
-              features: [
-                "Up to 10 pages",
-                "Advanced AI integration",
-                "Custom web application",
-                "E-commerce functionality",
-                "Content management system",
-                "Analytics dashboard",
-                "3 months support",
-              ],
-            },
-            {
-              name: "Enterprise",
-              price: "Custom",
-              desc:
-                "For large organizations requiring complex, scalable solutions with full AI implementation.",
-              features: [
-                "Unlimited pages",
-                "Full AI suite integration",
-                "Custom functionality",
-                "Advanced e-commerce",
-                "Multi-user CMS",
-                "API development",
-                "Machine learning models",
-                "6 months support",
-                "Dedicated account manager",
-              ],
-            },
-          ].map((p) => (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              whileHover={{ y: 2 }}
-              transition={{ type: "spring", stiffness: 300, damping: 24 }}
-            >
-              <Card
-                className="border-transparent [background:linear-gradient(var(--card),var(--card))_padding-box,linear-gradient(90deg,var(--aqua-glow),transparent)_border-box] hover:[background:linear-gradient(var(--card),var(--card))_padding-box,linear-gradient(90deg,var(--aqua-glow),var(--deep-ocean-blue))_border-box] transition-all duration-300 hover:ring-1 hover:ring-[var(--aqua-glow)]/30"
-              >
-                <CardHeader className="flex flex-row items-baseline justify-between">
-                  <div>
-                    <CardTitle>{p.name}</CardTitle>
-                    <CardDescription>{p.desc}</CardDescription>
-                  </div>
-                  <CardDescription className="text-base font-semibold text-foreground">{p.price}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-foreground/80">
-                    {p.features.map((f) => (
-                      <li key={f}>• {f}</li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild variant="outline">
-                    <a href="/pricing">Choose plan</a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        <h2 className="text-2xl font-bold mb-8">Paket Rekomendasi</h2>
+        <PricingGrid />
       </section>
 
       {/* Student Services Section */}
