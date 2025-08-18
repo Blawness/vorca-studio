@@ -1,32 +1,49 @@
+"use client";
+
 import Image from "next/image";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div className="font-sans">
       {/* Hero Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-10 items-center">
+      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-10 items-center overflow-hidden rounded-xl bg-secondary text-secondary-foreground">
+        {/* Spotlight background */}
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(120%_80%_at_50%_0%,_var(--deep-ocean-blue),_transparent_60%)]" />
+        {/* Subtle grid overlay */}
+        <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.08] [background:linear-gradient(to_right,rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.12)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
+
         <div className="space-y-6">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
             AI-Powered Web Solutions for the Modern Business
           </h1>
-          <p className="text-lg text-foreground/80">
+          <p className="text-lg text-secondary-foreground/90">
             We create cutting-edge web applications that leverage AI to drive engagement,
             efficiency, and growth for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button asChild size="lg">
+            <Button
+              asChild
+              size="lg"
+              className="[box-shadow:0_0_24px_var(--aqua-glow)/20] hover:[box-shadow:0_0_36px_var(--aqua-glow)/35] ring-1 ring-[var(--aqua-glow)]/30 hover:ring-[var(--aqua-glow)]/50 transition-all duration-300"
+            >
               <a href="/contact">Get Started Today</a>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-[var(--aqua-glow)]/40 hover:bg-[var(--aqua-glow)]/10 ring-1 ring-[var(--aqua-glow)]/20 hover:ring-[var(--aqua-glow)]/40 transition-all duration-300"
+            >
               <a href="/services">View Our Services</a>
             </Button>
           </div>
         </div>
         <div className="relative h-64 md:h-80 lg:h-96">
-          <Image src="/globe.svg" alt="VorcaStudio" fill className="object-contain dark:invert" />
+          <Image src="/globe.svg" alt="VorcaStudio" fill className="object-contain invert" />
         </div>
       </section>
 
@@ -84,24 +101,34 @@ export default function Home() {
               ],
             },
           ].map((c) => (
-            <Card key={c.title}>
-              <CardHeader>
-                <CardTitle>{c.title}</CardTitle>
-                <CardDescription>{c.desc}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-foreground/80">
-                  {c.features.map((f) => (
-                    <li key={f}>• {f}</li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button variant="link" asChild>
-                  <a href="/services">Learn more →</a>
-                </Button>
-              </CardFooter>
-            </Card>
+            <motion.div
+              key={c.title}
+              whileHover={{ y: 2 }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
+            >
+              <Card
+                className="bg-white/60 dark:bg-white/5 border-white/10 dark:border-white/10 backdrop-blur-md transition-all duration-300 hover:translate-y-[1px] hover:ring-1 hover:ring-[var(--aqua-glow)]/40"
+              >
+                <CardHeader>
+                  <CardTitle>{c.title}</CardTitle>
+                  <CardDescription>{c.desc}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm text-foreground/80">
+                    {c.features.map((f) => (
+                      <li key={f}>• {f}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="link" asChild>
+                    <a href="/services" className="underline-anim">
+                      Learn more →
+                    </a>
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -158,27 +185,35 @@ export default function Home() {
               ],
             },
           ].map((p) => (
-            <Card key={p.name}>
-              <CardHeader className="flex flex-row items-baseline justify-between">
-                <div>
-                  <CardTitle>{p.name}</CardTitle>
-                  <CardDescription>{p.desc}</CardDescription>
-                </div>
-                <CardDescription className="text-base font-semibold text-foreground">{p.price}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-foreground/80">
-                  {p.features.map((f) => (
-                    <li key={f}>• {f}</li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button asChild variant="outline">
-                  <a href="/pricing">Choose plan</a>
-                </Button>
-              </CardFooter>
-            </Card>
+            <motion.div
+              key={p.name}
+              whileHover={{ y: 2 }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
+            >
+              <Card
+                className="border-transparent [background:linear-gradient(var(--card),var(--card))_padding-box,linear-gradient(90deg,var(--aqua-glow),transparent)_border-box] hover:[background:linear-gradient(var(--card),var(--card))_padding-box,linear-gradient(90deg,var(--aqua-glow),var(--deep-ocean-blue))_border-box] transition-all duration-300 hover:ring-1 hover:ring-[var(--aqua-glow)]/30"
+              >
+                <CardHeader className="flex flex-row items-baseline justify-between">
+                  <div>
+                    <CardTitle>{p.name}</CardTitle>
+                    <CardDescription>{p.desc}</CardDescription>
+                  </div>
+                  <CardDescription className="text-base font-semibold text-foreground">{p.price}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm text-foreground/80">
+                    {p.features.map((f) => (
+                      <li key={f}>• {f}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild variant="outline">
+                    <a href="/pricing">Choose plan</a>
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -227,10 +262,18 @@ export default function Home() {
               role: "Computer Science Student",
             },
           ].map((t, i) => (
-            <figure key={i} className="rounded-lg border p-6 bg-background">
-              <blockquote className="text-sm text-foreground/90">“{t.quote}”</blockquote>
-              <figcaption className="mt-3 text-xs text-foreground/60">— {t.author}, {t.role}</figcaption>
-            </figure>
+            <motion.div
+              key={i}
+              whileHover={{ y: 2 }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
+            >
+              <figure
+                className="rounded-lg border border-white/10 dark:border-white/10 p-6 bg-white/60 dark:bg-white/5 backdrop-blur-md transition-all duration-300 hover:translate-y-[1px] hover:ring-1 hover:ring-[var(--aqua-glow)]/40"
+              >
+                <blockquote className="text-sm text-foreground/90">“{t.quote}”</blockquote>
+                <figcaption className="mt-3 text-xs text-foreground/60">— {t.author}, {t.role}</figcaption>
+              </figure>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -261,7 +304,9 @@ export default function Home() {
             <div>Phone: +1 (555) 123-4567</div>
             <div>Address: 123 Innovation Drive, Tech City</div>
             <div className="pt-2">
-              <a href="/contact" className="text-primary hover:underline">More contact options →</a>
+              <a href="/contact" className="underline-anim text-primary hover:text-primary">
+                More contact options →
+              </a>
             </div>
           </div>
         </div>
