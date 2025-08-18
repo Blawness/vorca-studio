@@ -23,7 +23,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "VorcaStudio",
-  description: "AI-Powered Web Solutions for the Modern Business",
+  description: "Solusi Web berbasis AI untuk Bisnis Modern",
 };
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="id" className="dark" suppressHydrationWarning>
       <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} antialiased min-h-screen bg-background text-foreground font-sans site-animated-bg`}>
         <Header />
         <main className="min-h-[calc(100vh-200px)]">

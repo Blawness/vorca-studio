@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
+import { FadeInOnView, StaggerContainer } from "@/components/ui/animated";
 
 export const metadata: Metadata = {
   title: "Portfolio — VorcaStudio",
@@ -34,25 +35,31 @@ export default function PortfolioPage() {
   return (
     <>
       <Section className="mx-auto max-w-7xl space-y-8">
-        <div>
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Portfolio & Case Studies</h1>
-          <p className="text-muted-foreground mt-2 max-w-2xl">Setiap studi kasus disusun berdasarkan framework: Challenge → Strategy → Execution → Results → Collaboration.</p>
-        </div>
+        <StaggerContainer className="space-y-6">
+          <FadeInOnView>
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Portfolio & Case Studies</h1>
+              <p className="text-muted-foreground mt-2 max-w-2xl">Setiap studi kasus disusun berdasarkan framework: Challenge → Strategy → Execution → Results → Collaboration.</p>
+            </div>
+          </FadeInOnView>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {cases.map((c) => (
-            <Card key={c.title} className="p-6 space-y-3">
-              <h2 className="text-lg font-semibold">{c.title}</h2>
-              <div className="text-sm space-y-2">
-                {c.items.map((i) => (
-                  <div key={i.key}>
-                    <span className="font-medium">{i.key}:</span> <span className="text-foreground/80">{i.value}</span>
+          <div className="grid gap-6 md:grid-cols-2">
+            {cases.map((c, idx) => (
+              <FadeInOnView key={c.title} delay={idx * 0.08}>
+                <Card className="p-6 space-y-3">
+                  <h2 className="text-lg font-semibold">{c.title}</h2>
+                  <div className="text-sm space-y-2">
+                    {c.items.map((i) => (
+                      <div key={i.key}>
+                        <span className="font-medium">{i.key}:</span> <span className="text-foreground/80">{i.value}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </Card>
-          ))}
-        </div>
+                </Card>
+              </FadeInOnView>
+            ))}
+          </div>
+        </StaggerContainer>
       </Section>
     </>
   );

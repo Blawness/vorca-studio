@@ -249,7 +249,7 @@ const ShaderGlobe = ({ className = "" }: { className?: string }) => {
       ref={canvasRef}
       className={`w-full h-full ${className}`}
       style={{ display: "block" }}
-      aria-label="Animated globe shader"
+      aria-label="Globe animasi (shader)"
       role="img"
     />
   );
@@ -329,11 +329,11 @@ export default function Home() {
 
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="relative z-10 space-y-6">
           <motion.h1 variants={item} className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            Digital Predators. Web Innovators.
+            Predator Digital. Inovator Web.
           </motion.h1>
           <motion.p variants={item} className="text-lg text-secondary-foreground/90">
-            Seperti orca yang menguasai lautan, kami menguasai dunia digital dengan strategi yang precision
-            dan collaboration yang kuat.
+            Seperti orca yang menguasai lautan, kami menguasai dunia digital dengan strategi yang presisi
+            dan kolaborasi yang kuat.
           </motion.p>
           <motion.div variants={item} className="flex flex-col sm:flex-row gap-3">
             <Button
@@ -366,55 +366,55 @@ export default function Home() {
 
       {/* Services Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold mb-8">Our Core Services</h2>
+        <h2 className="text-2xl font-bold mb-8">Layanan Utama Kami</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {[
             {
-              title: "AI Integration",
+              title: "Integrasi AI",
               desc:
-                "Seamlessly incorporate artificial intelligence into your existing website or application to enhance user experience, automate processes, and gain valuable insights from data.",
+                "Mengintegrasikan kecerdasan buatan ke website atau aplikasi Anda untuk meningkatkan pengalaman pengguna, mengotomatiskan proses, dan mendapatkan insight dari data.",
               features: [
-                "Machine learning implementation",
-                "Natural language processing",
-                "Predictive analytics",
-                "Personalization engines",
-                "Chatbot integration",
+                "Implementasi machine learning",
+                "Pemrosesan bahasa natural (NLP)",
+                "Analitik prediktif",
+                "Mesin personalisasi",
+                "Integrasi chatbot",
               ],
             },
             {
-              title: "Custom Web Applications",
+              title: "Aplikasi Web Kustom",
               desc:
-                "Bespoke web solutions designed specifically for your business needs, built with modern technologies and enhanced with AI capabilities.",
+                "Solusi web khusus sesuai kebutuhan bisnis Anda, dibangun dengan teknologi modern dan ditingkatkan dengan kapabilitas AI.",
               features: [
-                "Full-stack development",
-                "Responsive design",
-                "Database integration",
-                "API development",
-                "Scalable architecture",
+                "Pengembangan full‑stack",
+                "Desain responsif",
+                "Integrasi basis data",
+                "Pengembangan API",
+                "Arsitektur yang dapat diskalakan",
               ],
             },
             {
-              title: "E-commerce Solutions",
+              title: "Solusi E‑commerce",
               desc:
-                "AI-powered online stores that not only sell your products but also understand your customers, predict trends, and optimize sales.",
+                "Toko online bertenaga AI yang tidak hanya menjual produk, tetapi juga memahami pelanggan, memprediksi tren, dan mengoptimalkan penjualan.",
               features: [
-                "Product recommendation engines",
-                "Dynamic pricing",
-                "Inventory management",
-                "Payment integration",
-                "Analytics dashboard",
+                "Mesin rekomendasi produk",
+                "Penetapan harga dinamis",
+                "Manajemen inventaris",
+                "Integrasi pembayaran",
+                "Dasbor analitik",
               ],
             },
             {
-              title: "CMS Development",
+              title: "Pengembangan CMS",
               desc:
-                "Content management systems enhanced with AI to help you create, manage, and optimize your digital content more efficiently.",
+                "Sistem manajemen konten yang ditingkatkan dengan AI untuk membantu Anda membuat, mengelola, dan mengoptimalkan konten digital lebih efisien.",
               features: [
-                "AI content generation",
-                "SEO optimization tools",
-                "User behavior analytics",
-                "Automated content scheduling",
-                "Multi-channel publishing",
+                "Pembuatan konten dengan AI",
+                "Alat optimasi SEO",
+                "Analitik perilaku pengguna",
+                "Penjadwalan konten otomatis",
+                "Publikasi multi‑channel",
               ],
             },
           ].map((c) => (
@@ -443,7 +443,7 @@ export default function Home() {
                 <CardFooter>
                   <Button variant="link" asChild>
                     <a href="/services" className="underline-anim">
-                      Learn more →
+                      Pelajari lebih lanjut →
                     </a>
                   </Button>
                 </CardFooter>
@@ -462,45 +462,45 @@ export default function Home() {
       {/* Student Services Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 className="text-2xl font-bold mb-3">Specialized Web Services for Students</h2>
+          <h2 className="text-2xl font-bold mb-3">Layanan Web Khusus untuk Mahasiswa</h2>
           <p className="text-foreground/80">
-            We understand the unique needs of students and offer affordable solutions to help you build your online presence, portfolio, and digital projects.
+            Kami memahami kebutuhan unik mahasiswa dan menawarkan solusi terjangkau untuk membantu Anda membangun kehadiran online, portofolio, dan proyek digital.
           </p>
           <ul className="mt-4 space-y-2 text-sm text-foreground/80">
-            <li>• Portfolio Websites — Showcase your work with professionally designed portfolio websites at student-friendly prices.</li>
-            <li>• Academic Project Assistance — Need help with a web development project for school? Our student services can guide you through the process.</li>
-            <li>• Internship Preparation — Build real-world projects that will impress potential employers and help you land your dream internship.</li>
-            <li>• Mentorship Programs — Connect with experienced developers who can provide guidance and advice on your career path.</li>
+            <li>• Website Portofolio — Tampilkan karya Anda dengan website portofolio berdesain profesional dengan harga ramah mahasiswa.</li>
+            <li>• Bantuan Proyek Akademik — Butuh bantuan untuk proyek pengembangan web di kampus? Layanan kami siap membimbing Anda.</li>
+            <li>• Persiapan Magang — Bangun proyek nyata yang mengesankan calon pemberi kerja dan membantu meraih magang impian.</li>
+            <li>• Program Mentorship — Terhubung dengan developer berpengalaman untuk bimbingan dan saran karier.</li>
           </ul>
-          <div className="mt-4 rounded-lg border p-4 text-sm text-foreground/80">Get 30% off any of our standard packages with valid student ID. Special group rates available for student organizations.</div>
+          <div className="mt-4 rounded-lg border p-4 text-sm text-foreground/80">Dapatkan diskon 30% untuk paket standar kami dengan kartu mahasiswa yang valid. Tersedia harga khusus grup untuk organisasi mahasiswa.</div>
         </div>
         <div className="relative h-56 md:h-72">
-          <Image src="/next.svg" alt="Student services" fill className="object-contain dark:invert" />
+          <Image src="/next.svg" alt="Layanan mahasiswa" fill className="object-contain dark:invert" />
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold mb-8">Testimonials</h2>
+        <h2 className="text-2xl font-bold mb-8">Testimoni</h2>
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
               quote:
-                "Working with VorcaStudio transformed our online business. Their AI integration increased our conversion rate by 45% in just two months!",
+                "Bekerja sama dengan VorcaStudio mengubah bisnis online kami. Integrasi AI mereka meningkatkan tingkat konversi kami sebesar 45% hanya dalam dua bulan!",
               author: "Sarah Johnson",
-              role: "CEO of TechStart",
+              role: "CEO TechStart",
             },
             {
               quote:
-                "The team delivered exactly what we needed - a modern website with AI features that our customers love. Communication was excellent throughout the project.",
+                "Timnya memberikan tepat yang kami butuhkan — website modern dengan fitur AI yang disukai pelanggan kami. Komunikasi sangat baik sepanjang proyek.",
               author: "Michael Chen",
-              role: "Marketing Director",
+              role: "Direktur Pemasaran",
             },
             {
               quote:
-                "As a student, I was worried about the cost, but their student pricing made it possible to get a professional website for my freelance business.",
+                "Sebagai mahasiswa, saya khawatir soal biaya, tetapi harga khusus mahasiswa mereka membuat saya bisa mendapatkan website profesional untuk bisnis freelance saya.",
               author: "Emma Rodriguez",
-              role: "Computer Science Student",
+              role: "Mahasiswa Ilmu Komputer",
             },
           ].map((t, i) => (
             <motion.div
@@ -524,32 +524,32 @@ export default function Home() {
 
       {/* About Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold mb-3">About</h2>
+        <h2 className="text-2xl font-bold mb-3">Tentang</h2>
         <p className="text-foreground/80 max-w-3xl">
-          We believe in the power of artificial intelligence to transform the web. Our mission is to make cutting-edge AI web development accessible to businesses of all sizes.
+          Kami percaya pada kekuatan kecerdasan buatan untuk mentransformasi web. Misi kami adalah menghadirkan pengembangan web berbasis AI mutakhir yang dapat diakses oleh bisnis dari segala ukuran.
         </p>
         <ul className="mt-4 space-y-2 text-sm text-foreground/80">
-          <li><span className="font-semibold">Innovation:</span> We&apos;re constantly exploring new technologies and techniques to deliver the best possible solutions.</li>
-          <li><span className="font-semibold">Quality:</span> We never compromise on quality - every project is built to the highest standards.</li>
-          <li><span className="font-semibold">Collaboration:</span> We work closely with our clients to ensure their vision becomes reality.</li>
-          <li><span className="font-semibold">Education:</span> We believe in empowering our clients with knowledge about their digital solutions.</li>
+          <li><span className="font-semibold">Inovasi:</span> Kami terus mengeksplorasi teknologi dan teknik baru untuk menghadirkan solusi terbaik.</li>
+          <li><span className="font-semibold">Kualitas:</span> Kami tidak pernah berkompromi soal kualitas — setiap proyek dibangun dengan standar tertinggi.</li>
+          <li><span className="font-semibold">Kolaborasi:</span> Kami bekerja erat dengan klien agar visi mereka menjadi kenyataan.</li>
+          <li><span className="font-semibold">Edukasi:</span> Kami memberdayakan klien dengan pengetahuan tentang solusi digital mereka.</li>
         </ul>
       </section>
 
       {/* Contact Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold mb-6">Contact</h2>
+        <h2 className="text-2xl font-bold mb-6">Kontak</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-lg border p-6">
             <ContactForm />
           </div>
           <div className="rounded-lg border p-6 space-y-2 text-sm">
             <div>Email: contact@vorcastudio.com</div>
-            <div>Phone: +1 (555) 123-4567</div>
-            <div>Address: 123 Innovation Drive, Tech City</div>
+            <div>Telepon: +1 (555) 123-4567</div>
+            <div>Alamat: 123 Innovation Drive, Tech City</div>
             <div className="pt-2">
               <a href="/contact" className="underline-anim text-primary hover:text-primary">
-                More contact options →
+                Opsi kontak lainnya →
               </a>
             </div>
           </div>

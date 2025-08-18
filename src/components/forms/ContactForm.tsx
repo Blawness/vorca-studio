@@ -17,9 +17,9 @@ import {
 } from "@/components/ui/form";
 
 const schema = z.object({
-  name: z.string().min(2, "Please enter your full name"),
-  email: z.string().email("Please enter a valid email"),
-  message: z.string().min(10, "Please provide more details (min 10 chars)")
+  name: z.string().min(2, "Masukkan nama lengkap Anda"),
+  email: z.string().email("Masukkan email yang valid"),
+  message: z.string().min(10, "Berikan detail lebih lengkap (min 10 karakter)")
 });
 
 export type ContactFormValues = z.infer<typeof schema>;
@@ -34,8 +34,8 @@ export function ContactForm() {
   } = form;
 
   const onSubmit = async (values: ContactFormValues) => {
-    // TODO: send to API route when ready
-    console.log("Contact form submitted", values);
+    // TODO: kirim ke API route saat siap
+    console.log("Form kontak dikirim", values);
     setSubmitted(true);
     reset();
     setTimeout(() => setSubmitted(false), 4000);
@@ -49,9 +49,9 @@ export function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Nama</FormLabel>
               <FormControl>
-                <Input placeholder="Your name" {...field} />
+                <Input placeholder="Nama Anda" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -64,7 +64,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="you@example.com" {...field} />
+                <Input type="email" placeholder="anda@contoh.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -75,19 +75,19 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>Pesan</FormLabel>
               <FormControl>
-                <Textarea rows={5} placeholder="Tell us about your project" {...field} />
+                <Textarea rows={5} placeholder="Ceritakan tentang proyek Anda" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Mengirim..." : "Mulai Conversation"}
+          {isSubmitting ? "Mengirim..." : "Mulai Percakapan"}
         </Button>
         {submitted && (
-          <p className="text-sm text-green-600">Thanks! We'll get back to you shortly.</p>
+          <p className="text-sm text-green-600">Terima kasih! Kami akan menghubungi Anda segera.</p>
         )}
       </form>
     </Form>

@@ -11,12 +11,12 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const nav = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/students", label: "Students" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Beranda" },
+  { href: "/services", label: "Layanan" },
+  { href: "/pricing", label: "Harga" },
+  { href: "/students", label: "Mahasiswa" },
+  { href: "/about", label: "Tentang" },
+  { href: "/contact", label: "Kontak" },
 ];
 
 export function Header() {
@@ -47,7 +47,7 @@ export function Header() {
             </NavigationMenuList>
           </NavigationMenu>
           <Button asChild>
-            <Link href="/contact">Get Started</Link>
+            <Link href="/contact">Mulai Partnership</Link>
           </Button>
         </nav>
         <div className="md:hidden" />
