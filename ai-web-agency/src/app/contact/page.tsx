@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact — AI Web Agency",
+  title: "Contact — VorcaStudio",
   description: "Get in touch about services, pricing, timelines, or project ideas.",
 };
 
@@ -16,7 +16,7 @@ export default function ContactPage() {
           <ContactForm />
         </div>
         <div className="rounded-lg border p-6 space-y-2 text-sm">
-          <div>Email: contact@aiwebagency.com</div>
+          <div>Email: contact@vorcastudio.com</div>
           <div>Phone: +1 (555) 123-4567</div>
           <div>Address: 123 Innovation Drive, Tech City</div>
         </div>

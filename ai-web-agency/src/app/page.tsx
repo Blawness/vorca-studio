@@ -26,7 +26,7 @@ export default function Home() {
           </div>
         </div>
         <div className="relative h-64 md:h-80 lg:h-96">
-          <Image src="/globe.svg" alt="AI Web" fill className="object-contain dark:invert" />
+          <Image src="/globe.svg" alt="VorcaStudio" fill className="object-contain dark:invert" />
         </div>
       </section>
 
@@ -210,7 +210,7 @@ export default function Home() {
           {[
             {
               quote:
-                "Working with this AI web agency transformed our online business. Their AI integration increased our conversion rate by 45% in just two months!",
+                "Working with VorcaStudio transformed our online business. Their AI integration increased our conversion rate by 45% in just two months!",
               author: "Sarah Johnson",
               role: "CEO of TechStart",
             },
@@ -257,7 +257,7 @@ export default function Home() {
             <ContactForm />
           </div>
           <div className="rounded-lg border p-6 space-y-2 text-sm">
-            <div>Email: contact@aiwebagency.com</div>
+            <div>Email: contact@vorcastudio.com</div>
             <div>Phone: +1 (555) 123-4567</div>
             <div>Address: 123 Innovation Drive, Tech City</div>
             <div className="pt-2">

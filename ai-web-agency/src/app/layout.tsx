@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Web Agency",
+  title: "VorcaStudio",
   description: "AI-Powered Web Solutions for the Modern Business",
 };
 

@@ -1,6 +1,6 @@
-# AI Web Agency Landing Page - Development Prompt
+# VorcaStudio Landing Page - Development Prompt
 
-You are an expert frontend developer specializing in Next.js, Tailwind CSS, and shadcn/ui. Your task is to build a modern, responsive landing page for an AI web agency based on the provided documentation.
+You are an expert frontend developer specializing in Next.js, Tailwind CSS, and shadcn/ui. Your task is to build a modern, responsive landing page for VorcaStudio based on the provided documentation.
 
 ## Technology Requirements
 - Next.js 14 (using App Router)
@@ -75,12 +75,17 @@ Create the following pages as outlined in docs/08-project-roadmap.md:
 Follow the design system in docs/02-design-system.md:
 
 1. **Color Palette**
-   - Primary: `#7C3AED` (Violet-600)
-   - Secondary: `#0EA5E9` (Sky-500)
+   - Deep Ocean Blue: `#001F3F` (primary)
+   - Orca Black: `#0A0A0A`
+   - Foam White: `#FDFDFD`
+   - Aqua Glow: `#00C2FF` (accent)
+   - Steel Gray: `#6B7280`
    - Implement dark/light mode toggle
 
 2. **Typography**
-   - Primary font: Inter
+   - Headings: Poppins
+   - Body: Inter
+   - Accent: Space Grotesk
    - Use the defined font size hierarchy
 
 3. **Components**
@@ -171,4 +176,4 @@ Use the content library in docs/07-content-library.md for all text, headlines, a
 
 Use the wireframes in docs/05-ux-wireframes.md as a visual guide for the layout and structure of each page. Follow the implementation guide in docs/06-development-implementation-guide.md for technical setup and best practices.
 
-The final product should be a professional, responsive landing page that effectively showcases the AI web agency's services, with special attention to the student services section, and provides an excellent user experience across all devices.
+The final product should be a professional, responsive landing page that effectively showcases VorcaStudio's services, with special attention to the student services section, and provides an excellent user experience across all devices.

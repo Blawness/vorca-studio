@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing — AI Web Agency",
+  title: "Pricing — VorcaStudio",
   description: "Transparent pricing for Starter, Professional, and Enterprise packages.",
 };
 

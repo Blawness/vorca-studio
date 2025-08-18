@@ -28,7 +28,7 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link href="/" className="font-semibold text-lg tracking-tight">
-            AI Web Agency
+            VorcaStudio
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6 text-sm">

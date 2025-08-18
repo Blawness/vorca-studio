@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services — AI Web Agency",
+  title: "Services — VorcaStudio",
   description:
     "Detailed AI-powered web development services: AI integration, custom apps, e‑commerce, and CMS.",
 };
@@ -24,3 +24,4 @@ export default function ServicesPage() {
     </section>
   );
 }
+

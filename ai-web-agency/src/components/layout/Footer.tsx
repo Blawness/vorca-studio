@@ -5,9 +5,9 @@ export function Footer() {
     <footer className="border-t border-black/10 dark:border-white/10 mt-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid gap-8 md:grid-cols-3 text-sm">
         <div className="space-y-2">
-          <div className="font-semibold">AI Web Agency</div>
+          <div className="font-semibold">VorcaStudio</div>
           <p className="text-foreground/70">Building smarter websites with AI.</p>
-          <p className="text-foreground/60">© {new Date().getFullYear()} AI Web Agency. All rights reserved.</p>
+          <p className="text-foreground/60">© {new Date().getFullYear()} VorcaStudio. All rights reserved.</p>
         </div>
         <div>
           <div className="font-medium mb-3">Quick Links</div>
@@ -23,7 +23,7 @@ export function Footer() {
         <div>
           <div className="font-medium mb-3">Contact</div>
           <ul className="space-y-2 text-foreground/80">
-            <li>Email: contact@aiwebagency.com</li>
+            <li>Email: contact@vorcastudio.com</li>
             <li>Phone: +1 (555) 123-4567</li>
           </ul>
         </div>
@@ -31,3 +31,4 @@ export function Footer() {
     </footer>
   );
 }
+
