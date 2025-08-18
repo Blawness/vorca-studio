@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, Space_Grotesk } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -33,15 +32,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} antialiased min-h-screen bg-background text-foreground font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="min-h-[calc(100vh-200px)]">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} antialiased min-h-screen bg-background text-foreground font-sans site-animated-bg`}>
+        <Header />
+        <main className="min-h-[calc(100vh-200px)]">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

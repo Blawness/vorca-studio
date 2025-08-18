@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -50,11 +49,8 @@ export function Header() {
           <Button asChild>
             <Link href="/contact">Get Started</Link>
           </Button>
-          <ThemeToggle />
         </nav>
-        <div className="md:hidden">
-          <ThemeToggle />
-        </div>
+        <div className="md:hidden" />
       </div>
     </header>
   );

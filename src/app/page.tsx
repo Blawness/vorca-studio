@@ -5,32 +5,144 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
+
+const container: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+const item: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+};
+
+// Lightweight SVG wave layer for background parallax
+const WaveLayer = ({
+  className,
+  color,
+  opacity = 0.2,
+  height = 120,
+  y = 8,
+  duration = 12,
+  delay = 0,
+}: {
+  className?: string;
+  color: string;
+  opacity?: number;
+  height?: number;
+  y?: number;
+  duration?: number;
+  delay?: number;
+}) => (
+  <motion.svg
+    aria-hidden
+    className={className}
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    initial={{ y: 0 }}
+    animate={{ y: [0, -y, 0, y, 0] }}
+    transition={{ duration, delay, repeat: Infinity, ease: [0.4, 0, 0.2, 1] }}
+    style={{ height }}
+  >
+    <path
+      d="M0,80 C 120,60 240,100 360,80 C 480,60 600,20 720,40 C 840,60 960,100 1080,90 C 1200,80 1320,60 1440,80 L1440,120 L0,120 Z"
+      fill={color}
+      fillOpacity={opacity}
+    />
+  </motion.svg>
+);
 
 export default function Home() {
   return (
     <div className="font-sans">
       {/* Hero Section */}
-      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-10 items-center overflow-hidden rounded-xl bg-secondary text-secondary-foreground">
-        {/* Spotlight background */}
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(120%_80%_at_50%_0%,_var(--deep-ocean-blue),_transparent_60%)]" />
-        {/* Subtle grid overlay */}
-        <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.08] [background:linear-gradient(to_right,rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.12)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
+      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-10 items-center overflow-hidden rounded-xl text-foreground bg-[linear-gradient(180deg,var(--deep-ocean-blue)_0%,#001427_60%,#000A14_100%)]">
+        {/* Only waves remain (spotlight/grid removed) */}
+        {/* Parallax wave layers (faster + more layers) */}
+        <WaveLayer
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0"
+          color="#010F1E"
+          opacity={0.45}
+          height={260}
+          y={30}
+          duration={12}
+          delay={0}
+        />
+        <WaveLayer
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0"
+          color="#021E36"
+          opacity={0.38}
+          height={230}
+          y={26}
+          duration={11}
+          delay={0.25}
+        />
+        <WaveLayer
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0"
+          color="#052C44"
+          opacity={0.30}
+          height={205}
+          y={22}
+          duration={10}
+          delay={0.5}
+        />
+        <WaveLayer
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0"
+          color="#0A3A5F"
+          opacity={0.28}
+          height={185}
+          y={20}
+          duration={8}
+          delay={0.75}
+        />
+        <WaveLayer
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0"
+          color="var(--aqua-glow)"
+          opacity={0.22}
+          height={160}
+          y={16}
+          duration={7}
+          delay={1}
+        />
+        <WaveLayer
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0"
+          color="#13AEDA"
+          opacity={0.20}
+          height={130}
+          y={12}
+          duration={6}
+          delay={1.2}
+        />
+        <WaveLayer
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0"
+          color="#66E6FF"
+          opacity={0.16}
+          height={110}
+          y={10}
+          duration={5.5}
+          delay={1.35}
+        />
+        {/* Removed orca fin to keep only wave animations */}
 
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            AI-Powered Web Solutions for the Modern Business
-          </h1>
-          <p className="text-lg text-secondary-foreground/90">
-            We create cutting-edge web applications that leverage AI to drive engagement,
-            efficiency, and growth for your business.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="relative z-10 space-y-6">
+          <motion.h1 variants={item} className="text-4xl md:text-5xl font-extrabold tracking-tight">
+            Digital Predators. Web Innovators.
+          </motion.h1>
+          <motion.p variants={item} className="text-lg text-secondary-foreground/90">
+            Seperti orca yang menguasai lautan, kami menguasai dunia digital dengan strategi yang precision
+            dan collaboration yang kuat.
+          </motion.p>
+          <motion.div variants={item} className="flex flex-col sm:flex-row gap-3">
             <Button
               asChild
               size="lg"
               className="[box-shadow:0_0_24px_var(--aqua-glow)/20] hover:[box-shadow:0_0_36px_var(--aqua-glow)/35] ring-1 ring-[var(--aqua-glow)]/30 hover:ring-[var(--aqua-glow)]/50 transition-all duration-300"
             >
-              <a href="/contact">Get Started Today</a>
+              <a href="/contact">Mulai Partnership</a>
             </Button>
             <Button
               asChild
@@ -38,13 +150,19 @@ export default function Home() {
               size="lg"
               className="border-[var(--aqua-glow)]/40 hover:bg-[var(--aqua-glow)]/10 ring-1 ring-[var(--aqua-glow)]/20 hover:ring-[var(--aqua-glow)]/40 transition-all duration-300"
             >
-              <a href="/services">View Our Services</a>
+              <a href="/portfolio">Lihat Portfolio</a>
             </Button>
-          </div>
-        </div>
-        <div className="relative h-64 md:h-80 lg:h-96">
+          </motion.div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative z-10 h-64 md:h-80 lg:h-96"
+        >
           <Image src="/globe.svg" alt="VorcaStudio" fill className="object-contain invert" />
-        </div>
+        </motion.div>
       </section>
 
       {/* Services Section */}
@@ -103,6 +221,9 @@ export default function Home() {
           ].map((c) => (
             <motion.div
               key={c.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               whileHover={{ y: 2 }}
               transition={{ type: "spring", stiffness: 300, damping: 24 }}
             >
@@ -187,6 +308,9 @@ export default function Home() {
           ].map((p) => (
             <motion.div
               key={p.name}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               whileHover={{ y: 2 }}
               transition={{ type: "spring", stiffness: 300, damping: 24 }}
             >
@@ -264,6 +388,9 @@ export default function Home() {
           ].map((t, i) => (
             <motion.div
               key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               whileHover={{ y: 2 }}
               transition={{ type: "spring", stiffness: 300, damping: 24 }}
             >

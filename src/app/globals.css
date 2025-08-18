@@ -113,6 +113,13 @@
   --brand: oklch(66.5% 0.1804 47.04);
   --brand-foreground: oklch(75.77% 0.159 55.91);
 
+  /* Design System Tokens */
+  --deep-ocean-blue: #001F3F;   /* Primary background, hero section */
+  --orca-black: #0A0A0A;        /* Logo, typography headline */
+  --foam-white: #FDFDFD;        /* Text, contrast color */
+  --aqua-glow: #00C2FF;         /* Accent, buttons, links */
+  --steel-gray: #6B7280;        /* Secondary text, UI elements */
+
   /* Customized shadcn/ui colors */
   --background: oklch(97.65% 0.001 17.18);
   --foreground: oklch(0.141 0.005 285.823);
@@ -163,14 +170,14 @@
   --brand-foreground: oklch(75.77% 0.159 55.91);
 
   /* Customized shadcn/ui colors */
-  --background: oklch(0.141 0.005 285.823);
+  --background: var(--deep-ocean-blue);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.141 0.005 285.823);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.141 0.005 285.823);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.21 0.006 285.885);
+  --primary: var(--aqua-glow);
+  --primary-foreground: var(--foam-white);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.274 0.006 286.033);
@@ -212,4 +219,42 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Site-wide animated deep ocean gradient background */
+.site-animated-bg {
+  position: relative;
+}
+.site-animated-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* Multi-layer gradient: deep ocean base + moving aqua glows */
+  background-image:
+    radial-gradient(1000px 700px at 18% 12%, color(display-p3 0 0.7 1 / 0.10), transparent 60%),
+    radial-gradient(900px 650px at 82% 88%, color(display-p3 0.2 0.8 1 / 0.08), transparent 70%),
+    linear-gradient(180deg, var(--deep-ocean-blue) 0%, #001427 60%, #000A14 100%);
+  background-repeat: no-repeat;
+  background-size: 140% 140%, 140% 140%, 100% 100%;
+  background-position: 0% 0%, 100% 100%, 0% 0%;
+  animation: ocean-pan 28s ease-in-out infinite alternate;
+  will-change: background-position, transform;
+}
+
+@keyframes ocean-pan {
+  0% {
+    background-position: 0% 0%, 100% 100%, 0% 0%;
+  }
+  50% {
+    background-position: 40% 20%, 60% 80%, 0% 0%;
+  }
+  100% {
+    background-position: 80% 10%, 20% 90%, 0% 0%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-animated-bg::before { animation: none; }
 }

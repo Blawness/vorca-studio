@@ -84,7 +84,7 @@ export function ContactForm() {
           )}
         />
         <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send message"}
+          {isSubmitting ? "Mengirim..." : "Mulai Conversation"}
         </Button>
         {submitted && (
           <p className="text-sm text-green-600">Thanks! We'll get back to you shortly.</p>

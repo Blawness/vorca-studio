@@ -9,8 +9,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 space-y-6">
-      <h1 className="text-3xl font-bold">Contact Us</h1>
-      <p className="text-foreground/80 max-w-2xl">We'd love to hear about your project.</p>
+      <h1 className="text-3xl font-bold">Contact</h1>
+      <p className="text-foreground/80 max-w-3xl">Siap berburu digital success bersama?</p>
+      <p className="text-sm text-foreground/70 max-w-3xl">Pendekatan kami <span className="font-medium">partnership‑focused</span>, bukan sales‑focused. Mulai conversation—bukan sekadar get quote.</p>
       <div className="grid gap-6 md:grid-cols-2">
         <div className="rounded-lg border p-6">
           <ContactForm />
