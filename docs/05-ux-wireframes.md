@@ -1,167 +1,236 @@
-# UX Wireframes
+# VorcaStudio - UX Wireframes & User Journey
 
-## Page Layout Structure
+## 🗺️ Site Architecture
 
-### Desktop Layout
+### Information Architecture
 ```
--------------------------------------------------
-|  Header (Logo, Navigation, CTA)              |
--------------------------------------------------
-|  Hero Section                                |
-|  (Headline, Subheadline, Primary CTA)        |
--------------------------------------------------
-|  Services Section                            |
-|  (3-4 Service Cards with Icons)              |
--------------------------------------------------
-|  Pricing Section                             |
-|  (3 Pricing Cards with Feature Lists)        |
--------------------------------------------------
-|  Student Services Section                    |
-|  (Specialized Content for Students)          |
--------------------------------------------------
-|  Testimonials Section                        |
-|  (Client Quotes with Photos/Ratings)         |
--------------------------------------------------
-|  About Section                               |
-|  (Company Info, Team Photos)                 |
--------------------------------------------------
-|  Contact Section                             |
-|  (Form, Contact Info, Map)                   |
--------------------------------------------------
-|  Footer (Links, Social, Legal)               |
--------------------------------------------------
+VorcaStudio Website
+├── Home
+├── About
+│   ├── Our Story
+│   ├── Team
+│   └── Philosophy
+├── Services
+│   ├── Web Development
+│   ├── UI/UX Design
+│   ├── Digital Strategy
+│   └── Brand Development
+├── Portfolio
+│   ├── Case Studies
+│   ├── Testimonials
+│   └── Process
+├── Insights (Blog)
+│   ├── Industry Trends
+│   ├── Technical Guides
+│   └── Partnership Stories
+└── Contact
+    ├── Start Partnership
+    ├── Career
+    └── General Inquiry
 ```
 
-### Tablet Layout
-```
--------------------------------------------------
-|  Header (Logo, Hamburger Menu, CTA)          |
--------------------------------------------------
-|  Hero Section                                |
--------------------------------------------------
-|  Services Section                            |
-|  (2 Service Cards per Row)                   |
--------------------------------------------------
-|  Pricing Section                             |
-|  (3 Pricing Cards - Horizontal Scroll)       |
--------------------------------------------------
-|  Student Services Section                    |
--------------------------------------------------
-|  Testimonials Section                        |
--------------------------------------------------
-|  About Section                               |
--------------------------------------------------
-|  Contact Section                             |
--------------------------------------------------
-|  Footer                                      |
--------------------------------------------------
-```
+## 🏠 Homepage Wireframe
 
-### Mobile Layout
+### Header Section
 ```
--------------------------------------------------
-|  Header (Logo, Hamburger Menu)               |
--------------------------------------------------
-|  Hero Section                                |
--------------------------------------------------
-|  Services Section                            |
-|  (1 Service Card per Row)                    |
--------------------------------------------------
-|  Pricing Section                             |
-|  (1 Pricing Card at a Time - Carousel)       |
--------------------------------------------------
-|  Student Services Section                    |
--------------------------------------------------
-|  Testimonials Section                        |
--------------------------------------------------
-|  About Section                               |
--------------------------------------------------
-|  Contact Section                             |
--------------------------------------------------
-|  Footer (Stacked Layout)                     |
--------------------------------------------------
+[Logo: Orca Silhouette + VorcaStudio] [Navigation Menu] [CTA: Start Partnership]
 ```
-
-## Component Specifications
-
-### Header
-- Logo (left aligned)
-- Navigation menu (center)
-- Primary CTA button (right aligned)
-- Mobile hamburger menu (replaces navigation on small screens)
 
 ### Hero Section
-- Headline (H1): Clear value proposition
-- Subheadline (H2): Supporting text
-- Primary CTA Button: "Get Started" or "Contact Us"
-- Secondary CTA Link: "View Our Work"
-- Background visual (illustration or abstract design)
+```
+===========================================
+|  DIGITAL PREDATORS. WEB INNOVATORS.    |
+|  Seperti orca yang menguasai lautan,   |
+|  kami menguasai dunia digital dengan   |
+|  strategi precision & collaboration    |
+|                                        |
+|  [Mulai Partnership] [Lihat Portfolio] |
+|                                        |
+|  [Orca Animation - Subtle Movement]    |
+===========================================
+```
 
-### Services Section
-- Section heading
-- 3-4 service cards in a grid layout
-- Each card contains:
-  - Icon
-  - Title
-  - Short description
-  - "Learn More" link
+### Philosophy Section
+```
+=====================================
+|     FILOSOFI ORCA DALAM DIGITAL   |
+|                                   |
+| [Disruption Icon]  [Precision]    |
+| Innovation         Setiap Detail  |
+| Leadership         Calculated     |
+|                                   |
+| [Collaboration Icon]              |
+| Partnership                       |
+| Not Vendor                        |
+=====================================
+```
 
-### Pricing Section
-- Section heading
-- Toggle for monthly/annual pricing (if applicable)
-- 3 pricing cards:
-  - Starter Package
-  - Professional Package
-  - Enterprise Package
-- Each card includes:
-  - Package name
-  - Price
-  - Feature list (with checkmarks)
-  - CTA Button
-  - "Best Value" badge (on appropriate package)
+### Services Highlight
+```
+===============================================
+|  HUNTING STRATEGIES FOR DIGITAL SUCCESS    |
+|                                            |
+| [Card 1: Web Dev]  [Card 2: Design]       |
+| Strategic Code     User-Centric           |
+| Architecture       Experience             |
+|                                            |
+| [Card 3: Strategy] [Card 4: Brand]        |
+| Digital Roadmap    Identity Power         |
+| & Growth Plan      & Recognition          |
+===============================================
+```
 
-### Student Services Section
-- Section heading
-- Specialized content for student audience
-- Unique value proposition for students
-- Student pricing information
-- CTA Button for student inquiries
+### Portfolio Showcase
+```
+========================================
+|     PARTNERSHIP SUCCESS STORIES      |
+|                                     |
+| [Featured Case Study - Large Card]  |
+| Client X: 300% traffic increase     |
+| [View Full Story]                   |
+|                                     |
+| [Grid of 3-4 smaller case studies] |
+| [Lihat Semua Portfolio]             |
+========================================
+```
 
-### Testimonials Section
-- Section heading
-- Carousel/slider of testimonials
-- Each testimonial includes:
-  - Quote text
-  - Client name and title
-  - Client photo (if available)
-  - Star rating (if applicable)
+### CTA Section
+```
+=====================================
+|   SIAP BERBURU DIGITAL SUCCESS?   |
+|                                   |
+| Mari diskusikan bagaimana kami    |
+| bisa menjadi hunting partner      |
+| untuk digital dominance Anda      |
+|                                   |
+|    [Mulai Partnership Sekarang]   |
+=====================================
+```
 
-### About Section
-- Section heading
-- Company mission statement
-- Team member photos and roles
-- Key statistics/milestones
-- Call-to-action to learn more
+## 🔄 User Journey Mapping
 
-### Contact Section
-- Section heading
-- Contact form with fields:
-  - Name
-  - Email
-  - Service interest
-  - Message
-  - Submit button
-- Contact information:
-  - Email
-  - Phone
-  - Address (if applicable)
-- Social media links
-- Map (if physical location)
+### Primary User Flow: Potential Client
+```
+Landing → Hero Impact → Philosophy Understanding → Services Exploration → Portfolio Review → Contact Initiation
+```
 
-### Footer
-- Company logo
-- Quick links to important pages
-- Social media icons
-- Contact information
-- Legal links (Privacy Policy, Terms of Service)
-- Copyright information
+**Journey Stages**:
+
+1. **Awareness** (Landing)
+   - First impression: Professional yet disruptive
+   - Value proposition immediately clear
+   - Orca philosophy intriguing dan memorable
+
+2. **Interest** (Exploration)
+   - Services yang relevant dengan needs
+   - Case studies yang relatable
+   - Technical credibility established
+
+3. **Consideration** (Deep Dive)
+   - Portfolio detail menunjukkan capability
+   - Testimonials build trust
+   - Process transparency
+
+4. **Action** (Contact)
+   - Partnership-focused messaging
+   - Multiple contact options
+   - Clear next steps
+
+### Secondary User Flow: Talent Recruitment
+```
+About → Team Culture → Portfolio Quality → Career Opportunities → Application
+```
+
+## 📱 Mobile-First Wireframes
+
+### Mobile Navigation
+```
+[☰ Menu] [Logo] [Contact]
+
+Slide-out Menu:
+- Home
+- About
+- Services
+- Portfolio  
+- Insights
+- Contact
+- [Close X]
+```
+
+### Mobile Hero
+```
+========================
+|  DIGITAL PREDATORS  |
+|  WEB INNOVATORS     |
+|                     |
+| Seperti orca yang   |
+| menguasai lautan... |
+|                     |
+| [Mulai Partnership] |
+| [Lihat Portfolio]   |
+|                     |
+| [Orca Animation]    |
+========================
+```
+
+### Mobile Services (Card Stack)
+```
+=====================
+| WEB DEVELOPMENT   |
+| Strategic code    |
+| architecture      |
+| [Learn More →]    |
+=====================
+| UI/UX DESIGN      |
+| User-centric      |
+| experience        |
+| [Learn More →]    |
+=====================
+```
+
+## 🎨 Interaction Design Patterns
+
+### Micro-interactions
+**Button Hover**: Scale + glow effect dengan Aqua Glow
+**Card Hover**: Lift dengan shadow increase + content preview
+**Link Hover**: Underline animation dari kiri ke kanan
+**Form Focus**: Input border glow dengan brand colors
+
+### Page Transitions
+**Page Load**: Fade in dengan stagger effect pada elements
+**Section Scroll**: Parallax effect untuk depth
+**Navigation**: Smooth scroll dengan offset untuk fixed header
+
+### Loading States
+**Page Loading**: Orca silhouette dengan flowing animation
+**Content Loading**: Skeleton screens dengan wave animation
+**Form Submission**: Ripple effect dengan success confirmation
+
+## 📊 Conversion Optimization
+
+### CTA Placement Strategy
+**Above Fold**: Primary CTA di hero section
+**Service Pages**: CTA setelah benefit explanation
+**Portfolio**: CTA setelah case study yang compelling
+**About**: CTA setelah team credibility building
+
+### Lead Magnet Ideas
+- **"Digital Audit Checklist"**: Orca-style website evaluation
+- **"Partnership Playbook"**: Framework untuk successful collaboration
+- **"Innovation Trends Report"**: Industry insights dan predictions
+
+### Form Optimization
+**Contact Form**:
+- Minimal fields untuk reduce friction
+- Partnership-focused language
+- Multiple contact options
+- Clear privacy policy
+
+**Project Brief Form**:
+- Progressive disclosure
+- Visual project type selection
+- Budget range dengan value explanation
+- Timeline expectations
+
+---
+*"UX yang powerful seperti orca strategy - intuitive, efficient, dan selalu focus pada objective."*
