@@ -3,9 +3,9 @@ import { Section } from "@/components/ui/section";
 import { FadeInOnView, StaggerContainer } from "@/components/ui/animated";
 
 export const metadata: Metadata = {
-  title: "Services — VorcaStudio",
+  title: "Layanan — VorcaStudio",
   description:
-    "Detailed AI-powered web development services: AI integration, custom apps, e‑commerce, and CMS.",
+    "Layanan pengembangan web bertenaga AI: integrasi AI, aplikasi kustom, e‑commerce, dan CMS.",
 };
 
 export default function ServicesPage() {
@@ -13,7 +13,7 @@ export default function ServicesPage() {
     <Section className="mx-auto max-w-7xl">
       <StaggerContainer className="space-y-6">
         <FadeInOnView>
-          <h1 className="text-3xl font-bold">Our Services</h1>
+          <h1 className="text-3xl font-bold">Layanan Kami</h1>
         </FadeInOnView>
         <FadeInOnView>
           <p className="text-foreground/80 max-w-3xl">
@@ -24,45 +24,45 @@ export default function ServicesPage() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <FadeInOnView>
             <div className="rounded-lg border p-6 space-y-2">
-              <h3 className="font-semibold">Web Development</h3>
+              <h3 className="font-semibold">Pengembangan Web</h3>
               <p className="text-sm text-foreground/80">Membangun digital presence yang menguasai market.</p>
               <ul className="text-sm text-foreground/80 list-disc pl-5 space-y-1">
                 <li>Koordinasi tim developer seperti <em>pod orca</em> — seamless dan powerful</li>
-                <li>Technical expertise + strategic thinking</li>
+                <li>Keahlian teknis + pemikiran strategis</li>
                 <li>Custom solutions, bukan template</li>
               </ul>
             </div>
           </FadeInOnView>
           <FadeInOnView delay={0.06}>
             <div className="rounded-lg border p-6 space-y-2">
-              <h3 className="font-semibold">UI/UX Design</h3>
+              <h3 className="font-semibold">Desain UI/UX</h3>
               <p className="text-sm text-foreground/80">Menciptakan pengalaman yang memorable dan converting.</p>
               <ul className="text-sm text-foreground/80 list-disc pl-5 space-y-1">
-                <li>Precision dalam setiap interaction — seperti orca yang menghitung tiap gerakan</li>
-                <li>User‑centric approach</li>
-                <li>Conversion‑focused design</li>
+                <li>Presisi dalam setiap interaksi — seperti orca yang menghitung tiap gerakan</li>
+                <li>Pendekatan berpusat pada pengguna</li>
+                <li>Desain berfokus pada konversi</li>
               </ul>
             </div>
           </FadeInOnView>
           <FadeInOnView delay={0.12}>
             <div className="rounded-lg border p-6 space-y-2">
-              <h3 className="font-semibold">Digital Strategy</h3>
+              <h3 className="font-semibold">Strategi Digital</h3>
               <p className="text-sm text-foreground/80">Roadmap menuju digital dominance.</p>
               <ul className="text-sm text-foreground/80 list-disc pl-5 space-y-1">
-                <li>Mapping digital territory seperti orca memetakan hunting grounds</li>
-                <li>Data‑driven decisions</li>
-                <li>Long‑term partnership planning</li>
+                <li>Pemetaan wilayah digital seperti orca memetakan area berburu</li>
+                <li>Keputusan berbasis data</li>
+                <li>Perencanaan kemitraan jangka panjang</li>
               </ul>
             </div>
           </FadeInOnView>
           <FadeInOnView delay={0.18}>
             <div className="rounded-lg border p-6 space-y-2">
-              <h3 className="font-semibold">Brand Development</h3>
+              <h3 className="font-semibold">Pengembangan Merek</h3>
               <p className="text-sm text-foreground/80">Identity yang powerful seperti orca di lautannya.</p>
               <ul className="text-sm text-foreground/80 list-disc pl-5 space-y-1">
-                <li>Strategic brand foundations & guidelines</li>
-                <li>Visual system yang konsisten dan scalable</li>
-                <li>Activation plan lintas channel</li>
+                <li>Fondasi dan pedoman brand yang strategis</li>
+                <li>Sistem visual yang konsisten dan dapat diskalakan</li>
+                <li>Rencana aktivasi lintas kanal</li>
               </ul>
             </div>
           </FadeInOnView>

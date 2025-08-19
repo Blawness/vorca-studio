@@ -76,56 +76,56 @@ export default function PricingPage() {
             <>
               <FadeInOnView>
                 <Card className="p-6 glass-2">
-                  <h3 className="text-lg font-semibold">Free</h3>
+                  <h3 className="text-lg font-semibold">Gratis</h3>
                   <div className="mt-2 text-4xl font-bold">$0</div>
                   <p className="text-sm text-muted-foreground mt-1">
-                    For everyone starting out on a website for their big idea
+                    Untuk siapa pun yang baru memulai website untuk ide besarnya
                   </p>
                   <Separator className="my-4" />
                   <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Free and open-source forever</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 1 website template</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 9 blocks and sections</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 4 custom animations</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Gratis dan open‑source selamanya</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 1 template website</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 9 blok dan section</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 4 animasi kustom</li>
                   </ul>
-                  <Button className="w-full mt-6" size="lg">Get started for free</Button>
+                  <Button className="w-full mt-6" size="lg">Mulai gratis</Button>
                 </Card>
               </FadeInOnView>
               <FadeInOnView delay={0.08}>
                 <Card className="p-6 glass-4 ring-1 ring-primary/20 shadow-xl">
                   <h3 className="text-lg font-semibold">Pro</h3>
                   <div className="mt-2 text-4xl font-bold">$99</div>
-                  <p className="text-xs text-muted-foreground">one-time payment • plus local taxes</p>
+                  <p className="text-xs text-muted-foreground">pembayaran sekali • belum termasuk pajak lokal</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Lifetime access. Free updates. No recurring fees.
+                    Akses seumur hidup. Pembaruan gratis. Tanpa biaya berulang.
                   </p>
                   <Separator className="my-4" />
                   <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 4 website templates</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 2 app templates</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 72 blocks and sections</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 16 illustrations</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 14 custom animations</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 4 template website</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 2 template aplikasi</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 72 blok dan section</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 16 ilustrasi</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> 14 animasi kustom</li>
                   </ul>
-                  <Button className="w-full mt-6" size="lg" variant="default">Get all-access</Button>
+                  <Button className="w-full mt-6" size="lg" variant="default">Dapatkan akses penuh</Button>
                 </Card>
               </FadeInOnView>
               <FadeInOnView delay={0.16}>
                 <Card className="p-6 glass-2">
-                  <h3 className="text-lg font-semibold">Pro Team</h3>
+                  <h3 className="text-lg font-semibold">Pro Tim</h3>
                   <div className="mt-2 text-4xl font-bold">$499</div>
-                  <p className="text-xs text-muted-foreground">one-time payment • plus local taxes</p>
+                  <p className="text-xs text-muted-foreground">pembayaran sekali • belum termasuk pajak lokal</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Lifetime access. Free updates. No recurring fees.
+                    Akses seumur hidup. Pembaruan gratis. Tanpa biaya berulang.
                   </p>
                   <Separator className="my-4" />
                   <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> All templates, components and sections</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Team & agency usage</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Commercial projects</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Free updates</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Semua template, komponen, dan section</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Penggunaan untuk tim & agensi</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Proyek komersial</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Pembaruan gratis</li>
                   </ul>
-                  <Button className="w-full mt-6" size="lg" variant="default">Get all-access for your team</Button>
+                  <Button className="w-full mt-6" size="lg" variant="default">Dapatkan akses penuh untuk tim Anda</Button>
                 </Card>
               </FadeInOnView>
             </>

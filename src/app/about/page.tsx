@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <Section className="mx-auto max-w-7xl">
+    <Section noBg className="mx-auto max-w-7xl">
       <StaggerContainer className="space-y-6">
         <FadeInOnView>
           <h1 className="text-3xl font-bold">About Us</h1>

@@ -5,22 +5,8 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import type { Variants } from "framer-motion";
 import { PricingGrid } from "@/components/pricing/PricingGrid";
 import { useEffect, useRef } from "react";
-
-const container: Variants = {
-  hidden: { opacity: 0, y: 10 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { staggerChildren: 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-  },
-};
-const item: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-};
 
 // Lightweight SVG wave layer for background parallax
 const WaveLayer = ({
@@ -327,15 +313,15 @@ export default function Home() {
         />
         {/* Removed orca fin to keep only wave animations */}
 
-        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="relative z-10 space-y-6">
-          <motion.h1 variants={item} className="text-4xl md:text-5xl font-extrabold tracking-tight">
+        <div className="relative z-10 space-y-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
             Predator Digital. Inovator Web.
-          </motion.h1>
-          <motion.p variants={item} className="text-lg text-secondary-foreground/90">
+          </h1>
+          <p className="text-lg text-secondary-foreground/90">
             Seperti orca yang menguasai lautan, kami menguasai dunia digital dengan strategi yang presisi
             dan kolaborasi yang kuat.
-          </motion.p>
-          <motion.div variants={item} className="flex flex-col sm:flex-row gap-3">
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button
               asChild
               size="lg"
@@ -351,17 +337,11 @@ export default function Home() {
             >
               <a href="/portfolio">Lihat Portfolio</a>
             </Button>
-          </motion.div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="relative z-10 h-64 md:h-80 lg:h-96"
-        >
+          </div>
+        </div>
+        <div className="relative z-10 h-64 md:h-80 lg:h-96">
           <ShaderGlobe />
-        </motion.div>
+        </div>
       </section>
 
       {/* Services Section */}

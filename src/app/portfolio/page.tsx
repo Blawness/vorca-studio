@@ -4,30 +4,30 @@ import { Card } from "@/components/ui/card";
 import { FadeInOnView, StaggerContainer } from "@/components/ui/animated";
 
 export const metadata: Metadata = {
-  title: "Portfolio — VorcaStudio",
-  description: "Selected case studies showcasing strategy, execution, and measurable results.",
+  title: "Portofolio — VorcaStudio",
+  description: "Studi kasus pilihan yang menampilkan strategi, eksekusi, dan hasil terukur.",
 };
 
 export default function PortfolioPage() {
   const cases = [
     {
-      title: "E‑commerce Revamp for TechStart",
+      title: "Perombakan E‑commerce untuk TechStart",
       items: [
-        { key: "Challenge", value: "Low conversion and outdated UX in a competitive market." },
-        { key: "Strategy", value: "Orca-inspired hunting approach: map user journeys, prioritize high‑impact flows, and experiment fast." },
-        { key: "Execution", value: "Rebuilt PDP and checkout, added AI recommendations, improved performance (Core Web Vitals)." },
-        { key: "Results", value: "+45% conversion, +22% AOV, −38% checkout drop‑off in 8 weeks." },
-        { key: "Collaboration", value: "Continuous partnership with monthly optimization sprints." },
+        { key: "Tantangan", value: "Konversi rendah dan UX usang di pasar yang kompetitif." },
+        { key: "Strategi", value: "Pendekatan berburu ala orca: memetakan perjalanan pengguna, memprioritaskan alur berdampak tinggi, dan bereksperimen cepat." },
+        { key: "Eksekusi", value: "Membangun ulang PDP dan checkout, menambahkan rekomendasi AI, meningkatkan performa (Core Web Vitals)." },
+        { key: "Hasil", value: "+45% konversi, +22% AOV, −38% penurunan checkout dalam 8 minggu." },
+        { key: "Kolaborasi", value: "Kemitraan berkelanjutan dengan sprint optimasi bulanan." },
       ],
     },
     {
-      title: "B2B SaaS Site + CMS Migration",
+      title: "Situs B2B SaaS + Migrasi CMS",
       items: [
-        { key: "Challenge", value: "Hard-to-maintain marketing pages and slow content updates." },
-        { key: "Strategy", value: "Design system + CMS blocks for rapid iteration, SEO-first architecture." },
-        { key: "Execution", value: "Next.js website, modular CMS, AI-assisted content briefs, analytics instrumentation." },
-        { key: "Results", value: "+63% organic traffic, +31% demo requests in 3 months." },
-        { key: "Collaboration", value: "Enablement workshops for internal team; shared backlog for growth ops." },
+        { key: "Tantangan", value: "Halaman marketing sulit dirawat dan pembaruan konten lambat." },
+        { key: "Strategi", value: "Design system + blok CMS untuk iterasi cepat, arsitektur berfokus SEO." },
+        { key: "Eksekusi", value: "Website Next.js, CMS modular, brief konten berbantuan AI, instrumentasi analitik." },
+        { key: "Hasil", value: "+63% trafik organik, +31% permintaan demo dalam 3 bulan." },
+        { key: "Kolaborasi", value: "Sesi enablement untuk tim internal; backlog bersama untuk operasi pertumbuhan." },
       ],
     },
   ];
@@ -38,8 +38,8 @@ export default function PortfolioPage() {
         <StaggerContainer className="space-y-6">
           <FadeInOnView>
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Portfolio & Case Studies</h1>
-              <p className="text-muted-foreground mt-2 max-w-2xl">Setiap studi kasus disusun berdasarkan framework: Challenge → Strategy → Execution → Results → Collaboration.</p>
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Portofolio & Studi Kasus</h1>
+              <p className="text-muted-foreground mt-2 max-w-2xl">Setiap studi kasus disusun berdasarkan kerangka: Tantangan → Strategi → Eksekusi → Hasil → Kolaborasi.</p>
             </div>
           </FadeInOnView>
 
